@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rentr Partner – Udlej din bolig uden besvær</title>
+  <meta name="description" content="Rentr Partner hjælper boligejere og investorer med korttidsudlejning i København – vi håndterer rengøring, gæstekontakt, nøgler, prissætning og optimering. Bliv partner i dag." />
+  <meta name="theme-color" content="#1F6F4C" />
+  <meta property="og:title" content="Rentr Partner – Udlej din bolig uden besvær" />
+  <meta property="og:description" content="Tjen mere med Rentr. Vi klarer rengøring, gæsteservice, nøgler og prissætning. Få en gratis indtjeningsberegning i dag." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand-green:#1F6F4C;
+      --black:#000000;
+      --white:#FFFFFF;
+      --gray-50:#F5F5F5;
+      --gray-700:#4A4A4A;
+      --accent:#E9F3EE; /* lys grønlig baggrund */
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Open Sans',system-ui,-apple-system,segoe ui,roboto,ubuntu,'Helvetica Neue',Arial,sans-serif;color:#0A0A0B;background:#fff}
+    .container{max-width:1160px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .brand svg{width:34px;height:34px}
+    .brand .name{font-family:Montserrat, sans-serif;font-weight:700;letter-spacing:.2px}
+    .navlinks{display:flex;gap:18px;align-items:center}
+    .navlinks a{color:var(--gray-700);text-decoration:none;font-size:.98rem}
+    .navlinks a:hover{color:var(--brand-green)}
+    .lang-toggle{border:1px solid #E5E7EB;border-radius:999px;padding:6px 10px;background:#fff;display:flex;gap:6px;align-items:center}
+    .lang-toggle button{all:unset;cursor:pointer;padding:4px 10px;border-radius:999px;font-size:.9rem}
+    .lang-toggle button.active{background:var(--brand-green);color:#fff}
+
+    .hero{padding:72px 0;background:linear-gradient(180deg,#fff, var(--accent));}
+    .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}
+    .eyebrow{font-family:Montserrat,sans-serif;color:var(--brand-green);font-weight:700;letter-spacing:.6px;font-size:.9rem;text-transform:uppercase}
+    h1{font-family:Montserrat,sans-serif;font-size:clamp(28px,3.2vw,40px);line-height:1.15;margin:.4rem 0 1rem}
+    .lead{font-size:1.08rem;color:var(--gray-700);max-width:62ch}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .btn{appearance:none;border:none;border-radius:12px;padding:14px 18px;font-weight:700;font-family:Montserrat,sans-serif;cursor:pointer;transition:.2s}
+    .btn-primary{background:var(--brand-green);color:#fff}
+    .btn-primary:hover{filter:brightness(.95)}
+    .btn-outline{background:#fff;border:1.5px solid var(--brand-green);color:var(--brand-green)}
+    .btn-outline:hover{background:#f7fbf9}
+    .hero-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+
+    .badges{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .badge{background:#fff;border:1px solid #E6EAE7;border-radius:999px;padding:8px 12px;font-size:.88rem;color:#2e2e2e}
+
+    .section{padding:70px 0}
+    .section.gray{background:var(--gray-50)}
+    .section .title{font-family:Montserrat,sans-serif;font-size:clamp(22px,2.2vw,28px);margin:0 0 8px}
+    .muted{color:var(--gray-700)}
+
+    .usp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+    .usp{background:#fff;border:1px solid #E7ECE9;border-radius:16px;padding:18px;box-shadow:0 6px 16px rgba(0,0,0,0.04)}
+    .usp h3{font-family:Montserrat,sans-serif;font-size:1.05rem;margin:10px 0 6px}
+    .icon{width:28px;height:28px;color:var(--brand-green)}
+    .icon svg{width:28px;height:28px;stroke:var(--brand-green);stroke-width:2;fill:none}
+
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:18px}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    details{background:#fff;border:1px solid #E7ECE9;border-radius:14px;padding:14px}
+    summary{cursor:pointer;font-weight:600}
+    details[open]{box-shadow:0 6px 16px rgba(0,0,0,.05)}
+
+    .form-card{background:#fff;border-radius:18px;padding:22px;box-shadow:var(--shadow);border:1px solid #eef1ef}
+    form .row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    label{font-weight:600;font-size:.95rem}
+    input,select,textarea{width:100%;border:1px solid #E1E4E2;border-radius:12px;padding:12px 12px;font-size:1rem}
+    textarea{min-height:120px}
+    .consent{display:flex;gap:10px;align-items:flex-start}
+    .error{color:#b00020;font-size:.92rem;margin-top:6px}
+
+    footer{padding:40px 0;border-top:1px solid #eee;background:#fff}
+    .footergrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
+    .social{display:flex;gap:10px}
+    .social a{width:36px;height:36px;display:grid;place-items:center;border-radius:999px;border:1px solid #e7e7e7;color:#333;text-decoration:none}
+
+    /* Modals */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
+    .modal.open{display:flex}
+    .modal-card{background:#fff;border-radius:18px;box-shadow:var(--shadow);max-width:640px;width:100%;padding:22px}
+    .modal-close{background:#f5f5f5;border:none;border-radius:999px;width:34px;height:34px;cursor:pointer;float:right}
+
+    /* Cookie banner */
+    .cookie{position:fixed;bottom:14px;right:14px;left:14px;background:#fff;border:1px solid #eaeaea;border-radius:16px;box-shadow:var(--shadow);padding:16px;display:none;z-index:70}
+    .cookie.open{display:block}
+    .cookie .row{display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}
+    .cookie .toggles{display:flex;gap:12px;flex-wrap:wrap}
+    .toggle{display:flex;align-items:center;gap:8px;border:1px solid #e7e7e7;border-radius:999px;padding:6px 10px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero .grid{grid-template-columns:1fr}
+      .usp-grid{grid-template-columns:1fr 1fr}
+      .faq{grid-template-columns:1fr}
+      form .row{grid-template-columns:1fr}
+      .footergrid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <!-- Simple outline house logo as placeholder (swap with PNG logo when ready) -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 10.5V20h12v-9.5" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span class="name">Rentr Partner</span>
+      </a>
+      <nav class="navlinks">
+        <a href="#services" data-i18n="nav_services">Ydelser</a>
+        <a href="#usp" data-i18n="nav_benefits">Fordele</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+        <div class="lang-toggle" role="group" aria-label="Sprog">
+          <button id="lang-da" class="active" aria-pressed="true">DA</button>
+          <button id="lang-en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="grid">
+          <div>
+            <div class="eyebrow" data-i18n="eyebrow">Rentr – bliv vores partner i dag</div>
+            <h1 data-i18n="hero_title">Udlej din bolig uden besvær – tjen mere med Rentr</h1>
+            <p class="lead" data-i18n="hero_lead">Hos Rentr hjælper vi boligejere og investorer med korttidsudlejning i hele København. Vi tager os af alt fra rengøring, gæstekontakt og nøglehåndtering til prissætning og optimering – så du kan læne dig tilbage og nyde indtægten.</p>
+            <div class="ctas">
+              <a class="btn btn-primary" href="#contact" data-i18n="cta_partner">Bliv partner i dag</a>
+              <button class="btn btn-outline" id="openCalc" data-i18n="cta_calc">Få en gratis indtjeningsberegning</button>
+            </div>
+            <div class="badges">
+              <span class="badge">CVR: 39052334</span>
+              <span class="badge">Rentrpartner.dk</span>
+              <span class="badge">Slagelsegade 5A, Østerbro</span>
+            </div>
+          </div>
+          <div>
+            <div class="hero-card">
+              <img src="/assets/kbh-apartment.jpg" alt="Lyst københavnerhjem" style="width:100%;height:260px;object-fit:cover;border-radius:14px" loading="lazy" />
+              <div class="muted" style="margin-top:10px" data-i18n="hero_caption">Lyse, realistiske billeder fra vores listings – airy & clean look.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usp" class="section gray">
+      <div class="container">
+        <h2 class="title" data-i18n="usp_title">Hvorfor vælge Rentr?</h2>
+        <p class="muted" data-i18n="usp_sub">Vi kombinerer højere indtjening med komplet drift – uden bekymringer.</p>
+        <div class="usp-grid" style="margin-top:16px">
+          <article class="usp">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg>
+            </div>
+            <h3 data-i18n="usp_high_title">Højere indtjening</h3>
+            <p class="muted" data-i18n="usp_high_desc">Tjen over 150% mere end ved traditionel udlejning.</p>
+          </article>
+          <article class="usp">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 20h14M6 17l12-12"/></svg>
+            </div>
+            <h3 data-i18n="usp_clean_title">Rengøring</h3>
+            <p class="muted" data-i18n="usp_clean_desc">Vi håndterer rengøring og sengetøj.</p>
+          </article>
+          <article class="usp">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 8h16M8 8v10a4 4 0 1 0 8 0V8"/></svg>
+            </div>
+            <h3 data-i18n="usp_support_title">24/7 gæsteservice</h3>
+            <p class="muted" data-i18n="usp_support_desc">Professionel support til både dig og dine gæster døgnet rundt.</p>
+          </article>
+          <article class="usp">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.2L19 21l-7-4.5L5 21l2.5-7.8L2 9h7z"/></svg>
+            </div>
+            <h3 data-i18n="usp_peace_title">Ingen bekymringer</h3>
+            <p class="muted" data-i18n="usp_peace_desc">Lejeindtægt uden bøvl med huslejenævn eller administration.</p>
+          </article>
+          <article class="usp">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 12h4l3 7 4-14 3 7h4"/></svg>
+            </div>
+            <h3 data-i18n="usp_marketing_title">Markedsføring & prissætning</h3>
+            <p class="muted" data-i18n="usp_marketing_desc">Højere eksponering på flere bookingsider og professionelle billeder.</p>
+          </article>
+        </div>
+
+        <div class="gallery">
+          <img src="/assets/listing-1.jpg" alt="Stue i lys lejlighed" loading="lazy" />
+          <img src="/assets/listing-2.jpg" alt="Soveværelse med roligt udtryk" loading="lazy" />
+          <img src="/assets/listing-3.jpg" alt="Køkken med spiseplads" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="title" data-i18n="services_title">Alt samlet ét sted</h2>
+        <p class="muted" data-i18n="services_sub">Gæstehåndtering, nøgler, rengøring, prisoptimering, kalenderstyring og løbende rapporter.</p>
+        <div class="badges" style="margin-top:10px">
+          <span class="badge">E-mail: contact@rentrpartner.dk</span>
+          <span class="badge">Tlf: +45 52 39 18 14</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section gray">
+      <div class="container">
+        <h2 class="title" data-i18n="faq_title">FAQ</h2>
+        <div class="faq" style="margin-top:14px">
+          <details>
+            <summary data-i18n="faq_1_q">Hvad koster det at bruge Rentr?</summary>
+            <p class="muted" data-i18n="faq_1_a">Vi tager en fast procentsats af indtægten. Resten er din – og vi sørger for at maksimere din indtjening. I praksis vil øget eksponering, bedre prissætning og drift ofte betyde, at løsningen er selvfinansierende.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_2_q">Er der binding?</summary>
+            <p class="muted" data-i18n="faq_2_a">Nej, du kan til enhver tid stoppe samarbejdet.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_3_q">Hvad med rengøring og sengetøj?</summary>
+            <p class="muted" data-i18n="faq_3_a">Det klarer vi – professionelt team sikrer konsekvent høj standard.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_4_q">Hvor hurtigt svarer I gæsterne?</summary>
+            <p class="muted" data-i18n="faq_4_a">Vi har 24/7 support og svarer typisk inden for få minutter.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_5_q">Hvor meget kan jeg tjene?</summary>
+            <p class="muted" data-i18n="faq_5_a">Det afhænger af beliggenhed og boligtype. Mange partnere ligger mellem 20.000–50.000 kr./md.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="form-card">
+          <h2 class="title" data-i18n="form_title">Bliv partner – kontakt os</h2>
+          <p class="muted" data-i18n="form_sub">Udfyld formularen – vi vender tilbage inden for 24 timer.</p>
+          <form id="leadForm" novalidate>
+            <div class="row">
+              <div>
+                <label for="fullName" data-i18n="label_name">Navn (fornavn + efternavn)</label>
+                <input id="fullName" name="fullName" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="email" data-i18n="label_email">E-mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div>
+                <label for="phone" data-i18n="label_phone">Telefonnummer</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+              </div>
+              <div>
+                <label for="address" data-i18n="label_address">Adresse på bolig / by</label>
+                <input id="address" name="address" autocomplete="address-line1" />
+              </div>
+              <div>
+                <label for="homeType" data-i18n="label_type">Boligtype</label>
+                <select id="homeType" name="homeType" required>
+                  <option value="" selected disabled data-i18n="opt_choose">Vælg boligtype</option>
+                  <option data-i18n="opt_apartment" value="lejlighed">Lejlighed</option>
+                  <option data-i18n="opt_house" value="hus">Hus</option>
+                  <option data-i18n="opt_summer" value="sommerhus">Sommerhus</option>
+                </select>
+              </div>
+              <div>
+                <label for="rooms" data-i18n="label_rooms">Antal værelser</label>
+                <input id="rooms" name="rooms" type="number" inputmode="numeric" min="0" />
+              </div>
+              <div>
+                <label for="sqm" data-i18n="label_sqm">m²</label>
+                <input id="sqm" name="sqm" type="number" inputmode="numeric" min="0" />
+              </div>
+              <div>
+                <label for="notes" data-i18n="label_notes">Bemærkninger (alt værd at vide)</label>
+                <textarea id="notes" name="notes" placeholder="Fx elevator, altan, tillader kæledyr, parkering…"></textarea>
+              </div>
+              <!-- Honeypot anti-spam -->
+              <input type="text" name="company" id="company" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true">
+            </div>
+            <div class="consent" style="margin-top:10px">
+              <input id="gdpr" name="gdpr" type="checkbox" required />
+              <label for="gdpr" style="font-weight:400" data-i18n="gdpr_text">Ved at indsende denne formular giver jeg samtykke til, at Rentr må behandle mine personoplysninger for at kunne kontakte mig i forbindelse med forespørgslen. Oplysningerne deles ikke med tredjeparter og kan til enhver tid slettes efter ønske.</label>
+            </div>
+            <div id="formError" class="error" role="alert" style="display:none"></div>
+            <div class="ctas" style="margin-top:14px">
+              <button class="btn btn-primary" type="submit" data-i18n="submit_btn">Send henvendelse</button>
+              <button class="btn btn-outline" type="button" id="previewCalc" data-i18n="preview_calc">Se estimeret indtjening</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footergrid">
+      <div>
+        <strong>Rentr / Rentr Partner</strong><br/>
+        CVR: 39052334<br/>
+        Slagelsegade 5A, Østerbro<br/>
+        <a href="mailto:contact@rentrpartner.dk">contact@rentrpartner.dk</a> · <a href="tel:+4552391814">+45 52 39 18 14</a>
+      </div>
+      <div>
+        <strong data-i18n="links_title">Links</strong><br/>
+        <a href="#about" data-i18n="link_about">Om os</a> ·
+        <a href="#contact" data-i18n="link_contact">Kontakt</a> ·
+        <a href="#privacy" id="openPrivacy" data-i18n="link_privacy">Privatlivspolitik</a> ·
+        <a href="#terms" id="openTerms" data-i18n="link_terms">Betingelser</a>
+      </div>
+      <div>
+        <strong data-i18n="social_title">Følg os</strong>
+        <div class="social">
+          <a aria-label="Facebook" href="#" rel="nofollow noopener">f</a>
+          <a aria-label="Instagram" href="#" rel="nofollow noopener">ig</a>
+          <a aria-label="LinkedIn" href="#" rel="nofollow noopener">in</a>
+        </div>
+        <div style="margin-top:10px" class="muted">© 2025 Rentr. Alle rettigheder forbeholdes.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Calculator Modal -->
+  <div id="calcModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="calcTitle">
+    <div class="modal-card">
+      <button class="modal-close" data-close>x</button>
+      <h3 id="calcTitle" class="title" style="margin-top:0" data-i18n="calc_title">Gratis indtjeningsberegning</h3>
+      <p class="muted" data-i18n="calc_sub">Vurder dit potentiale hurtigt – tal er vejledende og kan justeres ved opstart.</p>
+      <div class="row">
+        <div>
+          <label for="nightly" data-i18n="calc_nightly">Forventet døgnpris (DKK)</label>
+          <input id="nightly" type="number" inputmode="decimal" min="0" value="1200" />
+        </div>
+        <div>
+          <label for="occ" data-i18n="calc_occ">Forventet belægning (%)</label>
+          <input id="occ" type="number" inputmode="decimal" min="0" max="100" value="65" />
+        </div>
+        <div>
+          <label for="fee" data-i18n="calc_fee">Rentr fee (%)</label>
+          <input id="fee" type="number" inputmode="decimal" min="0" max="100" value="20" />
+        </div>
+        <div>
+          <label for="clean" data-i18n="calc_clean">Rengøring pr. ophold (DKK)</label>
+          <input id="clean" type="number" inputmode="decimal" min="0" value="450" />
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <button class="btn btn-primary" id="runCalc" data-i18n="calc_btn">Beregn</button>
+      </div>
+      <div id="calcOut" class="hero-card" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <!-- Thank you Modal -->
+  <div id="thanksModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="thanksTitle">
+    <div class="modal-card">
+      <button class="modal-close" data-close>x</button>
+      <h3 id="thanksTitle" class="title" data-i18n="thanks_title">Tak for din henvendelse 🙌</h3>
+      <p class="muted" data-i18n="thanks_body">Vi har modtaget dine oplysninger og vender tilbage til dig inden for 24 timer. Vi glæder os til at vise dig, hvor meget din bolig kan tjene med Rentr!</p>
+    </div>
+  </div>
+
+  <!-- Cookie banner -->
+  <div id="cookie" class="cookie" role="dialog" aria-live="polite">
+    <div class="row">
+      <div>
+        <strong data-i18n="cookie_title">Cookies & privatliv</strong>
+        <div class="muted" data-i18n="cookie_text">Vi anvender cookies til at forbedre brugeroplevelsen, analysere trafik og til markedsføring. Du kan til enhver tid ændre eller trække dit samtykke tilbage.</div>
+      </div>
+      <div class="toggles">
+        <div class="toggle"><input type="checkbox" id="c_necessary" checked disabled /><label for="c_necessary" data-i18n="cookie_necessary">Nødvendige</label></div>
+        <div class="toggle"><input type="checkbox" id="c_analytics" /><label for="c_analytics" data-i18n="cookie_analytics">Analytics</label></div>
+        <div class="toggle"><input type="checkbox" id="c_marketing" /><label for="c_marketing" data-i18n="cookie_marketing">Marketing</label></div>
+      </div>
+      <div class="ctas">
+        <button class="btn btn-outline" id="cookieDecline" data-i18n="cookie_decline">Afvis</button>
+        <button class="btn btn-primary" id="cookieAccept" data-i18n="cookie_accept">Accepter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimal Terms/Privacy Modals -->
+  <div id="policyModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
+    <div class="modal-card">
+      <button class="modal-close" data-close>x</button>
+      <h3 id="policyTitle" class="title">Politik</h3>
+      <p class="muted" id="policyBody"></p>
+    </div>
+  </div>
+
+  <script>
+    // ======= CONFIG =======
+    const API_BASE = 'http://localhost:3000'; // Ændr til jeres API (fx https://api.rentrpartner.dk)
+
+    // ======= i18n =======
+    const dict = {
+      da:{
+        nav_services:"Ydelser", nav_benefits:"Fordele", nav_faq:"FAQ", nav_contact:"Kontakt",
+        eyebrow:"Rentr – bliv vores partner i dag",
+        hero_title:"Udlej din bolig uden besvær – tjen mere med Rentr",
+        hero_lead:"Hos Rentr hjælper vi boligejere og investorer med korttidsudlejning i hele København. Vi tager os af alt fra rengøring, gæstekontakt og nøglehåndtering til prissætning og optimering – så du kan læne dig tilbage og nyde indtægten.",
+        hero_caption:"Lyse, realistiske billeder fra vores listings – airy & clean look.",
+        cta_partner:"Bliv partner i dag",
+        cta_calc:"Få en gratis indtjeningsberegning",
+        usp_title:"Hvorfor vælge Rentr?",
+        usp_sub:"Vi kombinerer højere indtjening med komplet drift – uden bekymringer.",
+        usp_high_title:"Højere indtjening", usp_high_desc:"Tjen over 150% mere end ved traditionel udlejning.",
+        usp_clean_title:"Rengøring", usp_clean_desc:"Vi håndterer rengøring og sengetøj.",
+        usp_support_title:"24/7 gæsteservice", usp_support_desc:"Professionel support til både dig og dine gæster døgnet rundt.",
+        usp_peace_title:"Ingen bekymringer", usp_peace_desc:"Lejeindtægt uden bøvl med huslejenævn eller administration.",
+        usp_marketing_title:"Markedsføring & prissætning", usp_marketing_desc:"Højere eksponering på flere bookingsider og professionelle billeder.",
+        services_title:"Alt samlet ét sted", services_sub:"Gæstehåndtering, nøgler, rengøring, prisoptimering, kalenderstyring og løbende rapporter.",
+        faq_title:"FAQ",
+        faq_1_q:"Hvad koster det at bruge Rentr?", faq_1_a:"Vi tager en fast procentsats af indtægten. Resten er din – og vi sørger for at maksimere din indtjening. I praksis vil øget eksponering, bedre prissætning og drift ofte betyde, at løsningen er selvfinansierende.",
+        faq_2_q:"Er der binding?", faq_2_a:"Nej, du kan til enhver tid stoppe samarbejdet.",
+        faq_3_q:"Hvad med rengøring og sengetøj?", faq_3_a:"Det klarer vi – professionelt team sikrer konsekvent høj standard.",
+        faq_4_q:"Hvor hurtigt svarer I gæsterne?", faq_4_a:"Vi har 24/7 support og svarer typisk inden for få minutter.",
+        faq_5_q:"Hvor meget kan jeg tjene?", faq_5_a:"Det afhænger af beliggenhed og boligtype. Mange partnere ligger mellem 20.000–50.000 kr./md.",
+        form_title:"Bliv partner – kontakt os", form_sub:"Udfyld formularen – vi vender tilbage inden for 24 timer.",
+        label_name:"Navn (fornavn + efternavn)", label_email:"E-mail", label_phone:"Telefonnummer", label_address:"Adresse på bolig / by",
+        label_type:"Boligtype", opt_choose:"Vælg boligtype", opt_apartment:"Lejlighed", opt_house:"Hus", opt_summer:"Sommerhus",
+        label_rooms:"Antal værelser", label_sqm:"m²", label_notes:"Bemærkninger (alt værd at vide)",
+        gdpr_text:"Ved at indsende denne formular giver jeg samtykke til, at Rentr må behandle mine personoplysninger for at kunne kontakte mig i forbindelse med forespørgslen. Oplysningerne deles ikke med tredjeparter og kan til enhver tid slettes efter ønske.",
+        submit_btn:"Send henvendelse", preview_calc:"Se estimeret indtjening",
+        thanks_title:"Tak for din henvendelse 🙌", thanks_body:"Vi har modtaget dine oplysninger og vender tilbage til dig inden for 24 timer. Vi glæder os til at vise dig, hvor meget din bolig kan tjene med Rentr!",
+        calc_title:"Gratis indtjeningsberegning", calc_sub:"Vurder dit potentiale hurtigt – tal er vejledende og kan justeres ved opstart.",
+        calc_nightly:"Forventet døgnpris (DKK)", calc_occ:"Forventet belægning (%)", calc_fee:"Rentr fee (%)", calc_clean:"Rengøring pr. ophold (DKK)", calc_btn:"Beregn",
+        links_title:"Links", link_about:"Om os", link_contact:"Kontakt", link_privacy:"Privatlivspolitik", link_terms:"Betingelser", social_title:"Sociale medier",
+        cookie_title:"Cookies & privatliv", cookie_text:"Vi anvender cookies til at forbedre brugeroplevelsen, analysere trafik og til markedsføring. Du kan til enhver tid ændre eller trække dit samtykke tilbage.", cookie_necessary:"Nødvendige", cookie_analytics:"Analytics", cookie_marketing:"Marketing", cookie_decline:"Afvis", cookie_accept:"Accepter"
+      },
+      en:{
+        nav_services:"Services", nav_benefits:"Benefits", nav_faq:"FAQ", nav_contact:"Contact",
+        eyebrow:"Rentr – become our partner today",
+        hero_title:"Rent out your home hassle‑free – earn more with Rentr",
+        hero_lead:"We help owners and investors with short‑term rentals across Copenhagen. From cleaning, guest support and key handling to pricing and optimization – sit back and enjoy the income.",
+        hero_caption:"Bright, realistic photos from our listings – airy & clean look.",
+        cta_partner:"Become a partner", cta_calc:"Get a free earnings estimate",
+        usp_title:"Why choose Rentr?", usp_sub:"We combine higher revenue with end‑to‑end operations – worry‑free.",
+        usp_high_title:"Higher earnings", usp_high_desc:"Earn 150%+ vs. traditional renting.",
+        usp_clean_title:"Cleaning", usp_clean_desc:"We handle cleaning and linen.",
+        usp_support_title:"24/7 guest support", usp_support_desc:"Professional support for you and your guests around the clock.",
+        usp_peace_title:"No worries", usp_peace_desc:"Income without tenancy board or admin hassles.",
+        usp_marketing_title:"Marketing & pricing", usp_marketing_desc:"More exposure across platforms and pro photography.",
+        services_title:"Everything in one place", services_sub:"Guest handling, keys, cleaning, price optimization, calendar management and ongoing reports.",
+        faq_title:"FAQ",
+        faq_1_q:"What does Rentr cost?", faq_1_a:"We charge a fixed revenue percentage. The rest is yours – and we maximize it. In practice, improved exposure and pricing often make the service self‑financing.",
+        faq_2_q:"Is there a lock‑in?", faq_2_a:"No, you can stop at any time.",
+        faq_3_q:"Cleaning and linen?", faq_3_a:"We take care of it with a professional team.",
+        faq_4_q:"How fast do you reply?", faq_4_a:"24/7 support – typically within minutes.",
+        faq_5_q:"How much can I earn?", faq_5_a:"Depends on location and type. Many partners make DKK 20,000–50,000 per month.",
+        form_title:"Become a partner – contact us", form_sub:"Fill in the form – we’ll reply within 24 hours.",
+        label_name:"Full name", label_email:"Email", label_phone:"Phone", label_address:"Property address / city",
+        label_type:"Property type", opt_choose:"Choose type", opt_apartment:"Apartment", opt_house:"House", opt_summer:"Holiday home",
+        label_rooms:"Rooms", label_sqm:"sqm", label_notes:"Notes (anything useful)",
+        gdpr_text:"By submitting, I consent to Rentr processing my personal data to contact me about my enquiry. Data isn’t shared with third parties and can be deleted on request.",
+        submit_btn:"Send", preview_calc:"See estimated earnings",
+        thanks_title:"Thanks for your enquiry 🙌", thanks_body:"We’ve received your details and will get back to you within 24 hours.",
+        calc_title:"Free earnings estimate", calc_sub:"Quick estimate – figures are indicative and refined on onboarding.",
+        calc_nightly:"Expected nightly rate (DKK)", calc_occ:"Expected occupancy (%)", calc_fee:"Rentr fee (%)", calc_clean:"Cleaning per stay (DKK)", calc_btn:"Calculate",
+        links_title:"Links", link_about:"About", link_contact:"Contact", link_privacy:"Privacy", link_terms:"Terms", social_title:"Follow us",
+        cookie_title:"Cookies & privacy", cookie_text:"We use cookies to improve UX, analyze traffic and for marketing. You can change or withdraw consent anytime.", cookie_necessary:"Necessary", cookie_analytics:"Analytics", cookie_marketing:"Marketing", cookie_decline:"Decline", cookie_accept:"Accept"
+      }
+    }
+
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    function applyLocale(locale){
+      document.documentElement.lang = locale === 'en' ? 'en' : 'da';
+      $$('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        const val = dict[locale]?.[key];
+        if(val) el.textContent = val;
+      })
+      $('#lang-da').classList.toggle('active', locale==='da');
+      $('#lang-en').classList.toggle('active', locale==='en');
+      localStorage.setItem('locale', locale);
+    }
+
+    $('#lang-da').addEventListener('click', ()=>applyLocale('da'));
+    $('#lang-en').addEventListener('click', ()=>applyLocale('en'));
+    applyLocale(localStorage.getItem('locale')||'da');
+
+    // ======= Calculator =======
+    const calcModal = $('#calcModal');
+    $('#openCalc').addEventListener('click', ()=> calcModal.classList.add('open'));
+    $('#previewCalc').addEventListener('click', ()=> calcModal.classList.add('open'));
+    $('#runCalc').addEventListener('click', ()=>{
+      const nightly = parseFloat($('#nightly').value||0);
+      const occ = Math.min(100, Math.max(0, parseFloat($('#occ').value||0)))/100;
+      const fee = Math.min(100, Math.max(0, parseFloat($('#fee').value||0)))/100;
+      const clean = parseFloat($('#clean').value||0);
+      const staysPerMonth = 30 * occ; // simple antagelse
+      const gross = nightly * 30 * occ;
+      const cleaningCost = staysPerMonth * clean;
+      const afterFee = (gross - cleaningCost) * (1 - fee);
+      $('#calcOut').innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><strong>Brutto (md):</strong><br>DKK ${Math.round(gross).toLocaleString('da-DK')}</div>
+          <div><strong>Rengøring (md):</strong><br>DKK ${Math.round(cleaningCost).toLocaleString('da-DK')}</div>
+          <div><strong>Efter fee (md):</strong><br><strong>DKK ${Math.round(afterFee).toLocaleString('da-DK')}</strong></div>
+          <div class="muted">Tal er vejledende. Endelig plan laves ved opstart.</div>
+        </div>`;
+    });
+
+    // Close modals
+    $$('[data-close]').forEach(btn=>btn.addEventListener('click', e=> e.target.closest('.modal').classList.remove('open')));
+    [calcModal, $('#thanksModal'), $('#policyModal')].forEach(m=> m.addEventListener('click', e=>{ if(e.target===m) m.classList.remove('open')}));
+
+    // ======= Lead form =======
+    const form = $('#leadForm');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      $('#formError').style.display='none';
+      const hp = $('#company').value; if(hp){ return } // honeypot
+      const payload = {
+        fullName: form.fullName.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        address: form.address.value.trim(),
+        homeType: form.homeType.value,
+        rooms: form.rooms.value ? Number(form.rooms.value) : null,
+        sqm: form.sqm.value ? Number(form.sqm.value) : null,
+        notes: form.notes.value.trim(),
+        gdpr: form.gdpr.checked,
+        locale: document.documentElement.lang || 'da',
+        source: 'landing',
+        consent: getConsent()
+      }
+      if(!payload.fullName || !payload.email || !payload.phone || !payload.homeType || !payload.gdpr){
+        showError('Udfyld venligst alle obligatoriske felter og accepter samtykke.');
+        return;
+      }
+      try{
+        const res = await fetch(`${API_BASE}/leads`,{
+          method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
+        });
+        if(!res.ok){ throw new Error('Server error'); }
+        form.reset();
+        $('#thanksModal').classList.add('open');
+      }catch(err){
+        showError('Der opstod en fejl. Prøv igen – eller kontakt os på contact@rentrpartner.dk.');
+      }
+    });
+    function showError(msg){ const el=$('#formError'); el.textContent=msg; el.style.display='block'; }
+
+    // ======= Cookie consent =======
+    const cookie = $('#cookie');
+    const CONSENT_KEY = 'rentr-consent-v1';
+    function getConsent(){
+      try{ return JSON.parse(localStorage.getItem(CONSENT_KEY)||'{}'); }catch{ return {} }
+    }
+    function saveConsent(c){ localStorage.setItem(CONSENT_KEY, JSON.stringify(c)); }
+    function ensureConsent(){
+      const c = getConsent();
+      if(!c.set){ cookie.classList.add('open'); } else { maybeLoadAnalytics(c); }
+    }
+    function maybeLoadAnalytics(c){
+      if(c.analytics){ /* indlæs fx GTM her */ }
+    }
+    $('#cookieAccept').addEventListener('click', ()=>{
+      const c = { set:true, necessary:true, analytics: $('#c_analytics').checked, marketing: $('#c_marketing').checked, ts:Date.now() };
+      saveConsent(c); cookie.classList.remove('open'); maybeLoadAnalytics(c);
+    });
+    $('#cookieDecline').addEventListener('click', ()=>{
+      const c = { set:true, necessary:true, analytics:false, marketing:false, ts:Date.now() };
+      $('#c_analytics').checked=false; $('#c_marketing').checked=false; saveConsent(c); cookie.classList.remove('open');
+    });
+    ensureConsent();
+
+    // ======= Policies =======
+    const policy = $('#policyModal'), policyBody = $('#policyBody'), policyTitle = $('#policyTitle');
+    $('#openPrivacy').addEventListener('click', (e)=>{ e.preventDefault(); openPolicy('Privatlivspolitik', `Hos Rentr tager vi databeskyttelse alvorligt. Vi behandler dine personoplysninger (fx navn, e-mail og telefonnummer) udelukkende med det formål at besvare henvendelser og administrere samarbejder. Dine oplysninger opbevares sikkert og kun så længe, det er nødvendigt for at levere vores service eller som krævet ved lov. Du kan altid anmode om indsigt, rettelse eller sletning af dine data ved at kontakte os på contact@rentrpartner.dk.`)});
+    $('#openTerms').addEventListener('click', (e)=>{ e.preventDefault(); openPolicy('Betingelser', `Samarbejdsvilkår aftales individuelt. Ingen binding – du kan til enhver tid stoppe samarbejdet. Skader, ansvar og forsikring håndteres iht. aftale og gældende lov.`)});
+    function openPolicy(title, body){ policyTitle.textContent = title; policyBody.textContent = body; policy.classList.add('open'); }
+  </script>
+</body>
+</html>
